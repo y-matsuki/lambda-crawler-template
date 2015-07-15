@@ -1,0 +1,16 @@
+{
+  "name": "lambda-crawler-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm lambda-crawler.zip;",
+    "build": "rm lambda-crawler.zip;zip -r lambda-crawler.zip ./*;"
+  },
+  "author": "y-matsuki",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio-httpcli": "^0.3.2",
+    "dynamodb-doc": "^1.0.0"
+  }
+}
