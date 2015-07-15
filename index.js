@@ -34,6 +34,13 @@ exports.handler = function(event, context) {
     var params = {};
     params.TableName = "lambda-crawler";
     params.Item = summary;
-    dynamo.putItem(params, context.done);
+    dynamo.putItem(params, function(err, data){
+      if (err) {
+        context.fail(err);
+      } else {
+        delete params.Item;
+        dynamo.scan(params, context.done);
+      }
+    });
   });
 };
